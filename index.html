@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular animate</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body ng-app="app">
+	<div ng-controller="appController">
+		<div class="menu">
+			<a class="menu-item" href="#/">Home</a>
+			<a class="menu-item" href="#/testing">Testing</a>
+		</div>
+		<div class="message"  ng-class="{ 'message-closed': closed }">
+			message
+		</div>
+		<div class="button" ng-click="toggle()">toggle</div>
+		
+		<input style="width: 100%; font-size: 24px; margin-top: 20px" ng-model="newitem" placeholder="new item">
+		<div class="button" ng-click="add()">add</div>
+
+		<div ng-repeat="item in items" class="item" ng-click="remove($index)">
+			{{ item }}
+		</div>
+	</div>
+	
+	<div ng-view class="page">
+		view
+	</div>
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
